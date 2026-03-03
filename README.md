@@ -1,5 +1,5 @@
 # AI-Based Insider Threat Detection System
----Theme: Cyber Threat---
+Theme: Cyber Threat
 Problem Statement: Insider Blind Spot
 
 ## Problem Statement
