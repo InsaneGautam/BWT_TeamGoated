@@ -36,6 +36,7 @@ Problem Statement: Insider Blind Spot
 - Anomaly Detection Engine
 - Risk Scoring System
 - Alert and Admin Dashboard
+  ![System Architecture](architecture.png)
 
 ## Tech Stack
 
