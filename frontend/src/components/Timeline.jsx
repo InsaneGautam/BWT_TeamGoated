@@ -1,47 +1,27 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function Timeline(){
+const Timeline = ({ employeeId }) => {
+  const [events, setEvents] = useState([]);
 
-  const events = [
-    {time:"09:10 AM", action:"Login"},
-    {time:"10:05 AM", action:"Accessed finance report"},
-    {time:"02:14 AM", action:"Downloaded 820MB data"},
-    {time:"02:20 AM", action:"USB device connected"}
-  ];
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:8000/events/${employeeId}`)
+      .then(res => setEvents(res.data))
+      .catch(err => console.error(err));
+  }, [employeeId]);
 
-  return(
-
-    <div style={{marginTop:"30px"}}>
-
-      <h3>Activity Timeline</h3>
-
-      {events.map((event,i)=>(
-        <div key={i} style={row}>
-
-          <div style={time}>{event.time}</div>
-
-          <div style={action}>{event.action}</div>
-
-        </div>
-      ))}
-
+  return (
+    <div>
+      <h2>Activity Timeline</h2>
+      <ul>
+        {events.map((event, index) => (
+          <li key={index}>
+            {event.timestamp} - {event.event_type}
+          </li>
+        ))}
+      </ul>
     </div>
-
   );
-
-}
-
-const row = {
-  display:"flex",
-  marginBottom:"10px"
 };
 
-const time = {
-  width:"100px",
-  fontWeight:"bold"
-};
-
-const action = {
-  borderLeft:"2px solid #1890ff",
-  paddingLeft:"10px"
-};
+export default Timeline;
