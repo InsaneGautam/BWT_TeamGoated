@@ -1,25 +1,22 @@
-const RiskHeatmap = () => {
-  return (
-    <div>
-      <h2>Risk Heatmap</h2>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(5, 50px)",
-        gap: "5px"
-      }}>
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: "50px",
-              height: "50px",
-              backgroundColor: `rgba(255,0,0,${Math.random()})`
-            }}
-          />
-        ))}
-      </div>
+import React from "react";
+
+function RiskHeatmap(){
+
+  return(
+
+    <div style={{
+      background:"#1e293b",
+      padding:"20px",
+      borderRadius:"10px"
+    }}>
+
+      <h3>Risk Heatmap</h3>
+      <p>High risk employee behavior visualization</p>
+
     </div>
+
   );
-};
+
+}
 
 export default RiskHeatmap;
