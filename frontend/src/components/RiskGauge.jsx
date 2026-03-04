@@ -1,30 +1,32 @@
-import { PieChart, Pie, Cell } from "recharts";
+import React from "react";
 
-const data = [
-  { name: "Risk", value: 70 },
-  { name: "Safe", value: 30 },
-];
+function RiskGauge({alert}){
 
-const COLORS = ["#ff4d4f", "#52c41a"];
+  const score = Math.abs(alert.risk_score)*100;
 
-const RiskGauge = () => {
-  return (
-    <div>
-      <h2>Overall Risk Score</h2>
-      <PieChart width={300} height={200}>
-        <Pie
-          data={data}
-          innerRadius={60}
-          outerRadius={80}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={index} fill={COLORS[index]} />
-          ))}
-        </Pie>
-      </PieChart>
+  return(
+
+    <div style={{
+      background:"#1e293b",
+      padding:"20px",
+      margin:"10px",
+      borderRadius:"10px"
+    }}>
+
+      <h3>Employee: {alert.employee_id}</h3>
+
+      <p>Risk Score: {score.toFixed(2)}%</p>
+
+      <ul>
+        {alert.reasons.map((r,i)=>(
+          <li key={i}>{r}</li>
+        ))}
+      </ul>
+
     </div>
+
   );
-};
+
+}
 
 export default RiskGauge;
