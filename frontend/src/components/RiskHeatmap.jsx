@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RiskHeatmap() {
+export default function RiskHeatmap(){
 
   const users = [
     {name:"E101", risk:0.9},
@@ -9,25 +9,30 @@ export default function RiskHeatmap() {
     {name:"E122", risk:0.8}
   ];
 
-  return (
+  return(
+
     <div>
 
       <h3>Risk Heatmap</h3>
 
       {users.map((u,i)=>(
-        <div key={i}
-        style={{
-          background:getColor(u.risk),
-          padding:"10px",
-          margin:"5px",
-          width:"200px"
-        }}>
+        <div
+          key={i}
+          style={{
+            background:getColor(u.risk),
+            padding:"10px",
+            margin:"5px",
+            width:"200px"
+          }}
+        >
           {u.name} : {u.risk}
         </div>
       ))}
 
     </div>
+
   );
+
 }
 
 function getColor(score){
