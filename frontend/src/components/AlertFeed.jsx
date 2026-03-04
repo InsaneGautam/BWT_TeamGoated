@@ -1,37 +1,27 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function AlertFeed(){
+const AlertFeed = () => {
+  const [alerts, setAlerts] = useState([]);
 
-  const alerts = [
-    {user:"E014", reason:"Large data download", risk:"HIGH"},
-    {user:"E022", reason:"Login at unusual hour", risk:"MEDIUM"}
-  ];
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/alerts")
+      .then(res => setAlerts(res.data))
+      .catch(err => console.error(err));
+  }, []);
 
-  return(
-
+  return (
     <div>
-
       <h2>Recent Alerts</h2>
-
-      {alerts.map((a,i)=>(
-        <div key={i} style={card}>
-
-          <strong>{a.user}</strong>
-          <p>{a.reason}</p>
-
-          <span style={{color:"red"}}>{a.risk}</span>
-
-        </div>
-      ))}
-
+      <ul>
+        {alerts.map((alert, index) => (
+          <li key={index}>
+            Employee: {alert.employee_id} | Risk: {alert.risk_score}
+          </li>
+        ))}
+      </ul>
     </div>
-
   );
-
-}
-
-const card = {
-  border:"1px solid #ddd",
-  padding:"10px",
-  marginBottom:"8px"
 };
+
+export default AlertFeed;
