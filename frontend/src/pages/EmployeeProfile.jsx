@@ -1,12 +1,12 @@
 import React from "react";
+import Timeline from "../components/Timeline";
 
 export default function EmployeeProfile(){
 
   const employee = {
     id:"E014",
     department:"Finance",
-    risk:0.82,
-    activity:"Large data download"
+    risk:0.82
   };
 
   return(
@@ -18,10 +18,11 @@ export default function EmployeeProfile(){
       <p>ID: {employee.id}</p>
       <p>Department: {employee.department}</p>
       <p>Risk Score: {employee.risk}</p>
-      <p>Latest Activity: {employee.activity}</p>
+
+      <Timeline />
 
     </div>
 
-  )
+  );
 
 }
