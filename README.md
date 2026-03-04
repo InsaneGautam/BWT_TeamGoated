@@ -1,70 +1,20 @@
-# AI-Based Insider Threat Detection System
-Theme: Cyber Threat
-Problem Statement: Insider Blind Spot
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-## Problem Statement
+# Run and deploy your AI Studio app
 
-- Organizations focus heavily on defending against external cyber attacks.
-- Internal threats from authorized employees often go undetected.
-- Employees may misuse access privileges to download, leak, or manipulate sensitive data.
-- These insider threats are difficult to detect because activities appear legitimate.
-- This creates an “Insider Blind Spot” in cybersecurity systems.
+This contains everything you need to run your app locally.
 
-## Proposed Solution
+View your app in AI Studio: https://ai.studio/apps/d208ce68-338e-4f26-8a2c-81f1c7d60cd9
 
-- Develop an AI-based insider threat detection system.
-- Monitor user activity logs continuously.
-- Build a behavioral baseline for each employee.
-- Detect deviations from normal behavior using anomaly detection.
-- Calculate a dynamic risk score based on suspicious activities.
-- Generate alerts when risk score exceeds a defined threshold.
+## Run Locally
 
-## Key Features
+**Prerequisites:**  Node.js
 
-- User activity monitoring
-- Behavioral baseline modeling
-- AI-based anomaly detection
-- Risk scoring mechanism
-- Suspicious activity alert generation
-- Admin monitoring dashboard
 
-## System Architecture
-
-- User Activity Logger
-- Data Preprocessing Module
-- Behavioral Baseline Model
-- Anomaly Detection Engine
-- Risk Scoring System
-- Alert and Admin Dashboard
-  ![System Architecture](architecture.png)
-
-## Tech Stack
-
-- Python
-- Pandas
-- Scikit-learn (Isolation Forest for anomaly detection)
-- Flask (optional dashboard)
-- Matplotlib (visualization)
-
-## How It Works
-
-- Collect simulated user activity data.
-- Analyze historical behavior to establish normal patterns.
-- Compare current activity with baseline behavior.
-- Detect anomalies using AI model or rule-based logic.
-- Assign risk score based on severity of deviation.
-- Trigger alert if risk threshold is exceeded.
-
-## Expected Impact
-
-- Early detection of insider data theft
-- Reduction in organizational data breaches
-- Intelligent monitoring beyond traditional rule-based systems
-- Detection of both sudden and gradual insider attacks
-
-## Future Improvements
-
-- Real-time log monitoring integration
-- Deployment on cloud infrastructure
-- Role-based dynamic risk scoring
-- Integration with enterprise security systems
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

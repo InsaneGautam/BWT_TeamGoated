@@ -1,0 +1,5 @@
+{
+  "name": "Sentinel - Insider Threat Detector",
+  "description": "AI-based system to detect insider threats by monitoring user activity patterns and identifying behavioral anomalies.",
+  "requestFramePermissions": []
+}
