@@ -1,35 +1,30 @@
-import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 
-export default function RiskGauge(){
+const data = [
+  { name: "Risk", value: 70 },
+  { name: "Safe", value: 30 },
+];
 
-  const data = [
-    {name:"Risk", value:70},
-    {name:"Safe", value:30}
-  ];
+const COLORS = ["#ff4d4f", "#52c41a"];
 
-  const colors = ["#ff4d4f","#52c41a"];
-
-  return(
-
+const RiskGauge = () => {
+  return (
     <div>
-
-      <h3>Average Risk Score</h3>
-
-      <PieChart width={250} height={200}>
-
-        <Pie data={data} dataKey="value" outerRadius={80}>
-
-          {data.map((entry,index)=>(
-            <Cell key={index} fill={colors[index]} />
+      <h2>Overall Risk Score</h2>
+      <PieChart width={300} height={200}>
+        <Pie
+          data={data}
+          innerRadius={60}
+          outerRadius={80}
+          dataKey="value"
+        >
+          {data.map((entry, index) => (
+            <Cell key={index} fill={COLORS[index]} />
           ))}
-
         </Pie>
-
       </PieChart>
-
     </div>
-
   );
+};
 
-}
+export default RiskGauge;
